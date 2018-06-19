@@ -114,7 +114,7 @@ h5 {
 .dropdown-menu > .active > a:hover {
   color: #fff;
   text-decoration: none;
-  background-color: #1ab394;
+  background-color: #f05a3a;
   outline: 0;
 }
 .dropdown-menu > li > a.font-bold {
@@ -167,10 +167,24 @@ h5 {
 .nav.navbar-top-links .dropdown-alerts a {
   font-size: 12px;
 }
+.nav-logo {
+  width:70%;
+}
 .nav-header {
   padding: 33px 25px;
   background-color: #2f4050;
   background-image: url("patterns/header-profile.png");
+}
+.navbar-header {
+  position: relative;
+  top:20px;
+}
+.dropdown-toggle {
+  background: transparent !important;
+}
+.navbar-top-menu-item {
+  position:relative; 
+  bottom:30px;
 }
 .pace-done .nav-header {
   transition: all 0.4s;
@@ -179,7 +193,7 @@ ul.nav-second-level {
   background: #293846;
 }
 .nav > li.active {
-  border-left: 4px solid #19aa8d;
+  border-left: 4px solid #f05a3a;
   background: #293846;
 }
 .nav.nav-second-level > li.active {
@@ -283,23 +297,23 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
   left: 65px;
 }
 .navbar-default .special_link a {
-  background: #1ab394;
+  background: #f05a3a;
   color: white;
 }
 .navbar-default .special_link a:hover {
-  background: #17987e !important;
+  background: #f05a3a !important;
   color: white;
 }
 .navbar-default .special_link a span.label {
   background: #fff;
-  color: #1ab394;
+  color: #f05a3a;
 }
 .navbar-default .landing_link a {
-  background: #1cc09f;
+  background: #f05a3a;
   color: white;
 }
 .navbar-default .landing_link a:hover {
-  background: #1ab394 !important;
+  background: #f05a3a !important;
   color: white;
 }
 .navbar-default .landing_link a span.label {
@@ -391,7 +405,13 @@ body.fixed-nav.fixed-nav-basic.fixed-sidebar.mini-navbar.body-small .navbar-fixe
 body.mini-navbar .navbar-static-side {
   width: 70px;
 }
-body.mini-navbar .profile-element,
+body.mini-navbar .nav-header {
+  margin-top:30px;
+}
+body.mini-navbar .nav-header img {
+  width: 95%;
+}
+/* body.mini-navbar .profile-element, */
 body.mini-navbar .nav-label,
 body.mini-navbar .navbar-default .nav li a span {
   display: none;
@@ -413,7 +433,7 @@ body.canvas-menu .logo-element {
 }
 body.mini-navbar .nav-header {
   padding: 0;
-  background-color: #1ab394;
+  background-color: #f05a3a;
 }
 body.canvas-menu .nav-header {
   padding: 33px 25px;
@@ -512,7 +532,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 }
 .top-navigation .navbar-nav .dropdown-menu > .active > a {
   background: white;
-  color: #1ab394;
+  color: #f05a3a;
   font-weight: bold;
 }
 .white-bg .navbar-fixed-top,
@@ -536,7 +556,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   border: none;
 }
 .top-navigation .nav > li.active > a {
-  color: #1ab394;
+  color: #f05a3a;
 }
 .top-navigation .navbar-right {
   margin-right: 10px;
@@ -553,7 +573,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   margin-top: 0;
 }
 .top-navigation .navbar-brand {
-  background: #1ab394;
+  background: #f05a3a;
   color: #fff;
   padding: 15px 25px;
 }
@@ -582,7 +602,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   padding: 40px 0 40px 0;
 }
 .navbar-toggle {
-  background-color: #1ab394;
+  background-color: #f05a3a;
   color: #fff;
   padding: 6px 12px;
   font-size: 14px;
@@ -629,7 +649,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   min-width: 120px;
 }
 .btn-primary.btn-outline {
-  color: #1ab394;
+  color: #f05a3a;
 }
 .btn-success.btn-outline {
   color: #1c84c6;
@@ -688,8 +708,8 @@ fieldset[disabled] .btn-primary:hover,
 fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary:active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #1dc5a3;
-  border-color: #1dc5a3;
+  background-color: #f05a3a;
+  border-color: #f05a3a;
 }
 .btn-success {
   background-color: #1c84c6;
@@ -7913,6 +7933,7 @@ body.skin-2 {
 .skin-2 .navbar-minimalize {
   background: #23c6c8;
   border-color: #23c6c8;
+  min-height: 100px !important;
 }
 .skin-2 .border-bottom {
   border-bottom: none !important;
@@ -7925,6 +7946,7 @@ body.skin-2 #wrapper {
 }
 .skin-2 .navbar-static-top {
   background: #213a53;
+
 }
 .fixed-nav.skin-2 .navbar-fixed-top {
   background: #213a53;

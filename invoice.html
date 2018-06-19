@@ -3,6 +3,7 @@
 
 
 <!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/table_data_tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Jun 2018 03:14:48 GMT -->
+
 <head>
 
     <meta charset="utf-8">
@@ -29,54 +30,81 @@
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
-                        <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
-                             </span>
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Triều Anh</strong>
-                             </span> <span class="text-muted text-xs block">Kế toán<b class="caret"></b></span> </span> </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="profile.html">Tài khoản</a></li>
-                                <li class="divider"></li>
-                                <li><a href="login.html">Đăng xuất</a></li>
-                            </ul>
-                        </div>
-                        <div class="logo-element">
-                            HiEIS
-                        </div>
+                        <img class="nav-logo" src="img/qtsc_logo.png" alt="logo"/>
                     </li>
                     <li class="active">
-                        <a href="invoice.html"><i class="fa fa-th-large"></i> <span class="nav-label">Hóa đơn</span></a>
+                        <a href="invoice.html">
+                            <i class="fa fa-th-large"></i>
+                            <span class="nav-label">Hóa đơn</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="proforma-invoice.html"><i class="fa fa-table"></i> <span class="nav-label">Thông báo phí</span></a>
+                        <a href="proforma-invoice.html">
+                            <i class="fa fa-table"></i>
+                            <span class="nav-label">Thông báo phí</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="liabilities.html"><i class="fa fa-table"></i> <span class="nav-label">Công nợ</span></a>
+                        <a href="liabilities.html">
+                            <i class="fa fa-table"></i>
+                            <span class="nav-label">Công nợ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-table"></i>
+                            <span class="nav-label">Khách hàng</span>
+                        </a>
                     </li>
                 </ul>
 
             </div>
         </nav>
 
-        
+
         <div id="page-wrapper" class="gray-bg">
             <!-- Navbar top -->
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
-                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
-                            <li>
-                                <span class="m-r-sm text-muted welcome-message">HiEIS Admin</span>
-                            </li>
-                            <li>
-                                <a href="login.html">
-                                    <i class="fa fa-sign-out"></i> Đăng xuất
+                        <li class="navbar-top-menu-item">
+                            <span class="m-r-sm text-muted welcome-message">HiEIS Admin</span>
+                        </li>
+                        <li class="navbar-top-menu-item">
+                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                        </li>
+                        <li>
+                            <div class="dropdown profile-element">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    <span class="clear">
+                                        <span class="block m-t-xs">
+                                            <strong class="font-bold">Triều Anh</strong>
+                                        </span>
+                                        <span class="text-muted text-xs block">Kế toán
+                                            <b class="caret"></b>
+                                        </span>
+                                    </span>
                                 </a>
-                            </li>
-                        </ul>
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li>
+                                        <a href="profile.html">Tài khoản</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="login.html">Đăng xuất</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <div class="logo-element">
+                                    HiEIS
+                                </div> -->
+                        </li>
+                    </ul>
                 </nav>
             </div>
 
@@ -100,7 +128,8 @@
                                         <i class="fa fa-chevron-up"></i>
                                     </a>
                                 </div>
-                            </div><!-- ibox-title -->
+                            </div>
+                            <!-- ibox-title -->
 
                             <div class="ibox-content">
                                 <!-- Search group -->
@@ -112,7 +141,7 @@
                                         <input id="search-code" class="form-control" placeholder="Mã khách hàng">
                                     </div>
                                     <div class="col-md-3">
-                                        <div id="search-date" class="input-daterange input-group" id="datepicker"> 
+                                        <div id="search-date" class="input-daterange input-group" id="datepicker">
                                             <input id="min" type="text" class="input-sm form-control" name="min" placeholder="dd/mm/yyyy" />
                                             <span class="input-group-addon">đến</span>
                                             <input id="max" type="text" class="input-sm form-control" name="max" placeholder="dd/mm/yyyy" />
@@ -120,7 +149,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="filter payment">
-                                            <select id="search-payment" class="form-control m-b" >
+                                            <select id="search-payment" class="form-control m-b">
                                                 <option value="">Tất cả</option>
                                                 <option>Đã thanh toán</option>
                                                 <option>Chưa thanh toán</option>
@@ -137,7 +166,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div><!-- /Search group -->
+                                </div>
+                                <!-- /Search group -->
 
                                 <!-- Button group -->
                                 <div class="row table-button-group">
@@ -147,150 +177,181 @@
                                             <i class="fa fa-plus"></i>Tạo hóa đơn
                                         </button>
                                     </div>
-                                </div><!-- /Button group -->
+                                </div>
+                                <!-- /Button group -->
 
                                 <!-- Main table -->
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover table-custom" id="invoice-table">
-                                    <thead>
-                                    <tr>
-                                        <th>Khách hàng</th>
-                                        <th>Mã KH</th>
-                                        <th>Mã tra cứu</th>
-                                        <th>
-                                            Mẫu số<br>Ký hiệu
-                                        </th>
-                                        <th>Số</th>
-                                        <th>Thanh toán</th>
-                                        <th>Ngày</th>
-                                        <th>Trạng thái</th>
-                                        <th>Thao tác</th>
-                                    </tr>
+                                        <thead>
+                                            <tr>
+                                                <th>Khách hàng</th>
+                                                <th>Mã KH</th>
+                                                <th>Mã tra cứu</th>
+                                                <th>
+                                                    Mẫu số
+                                                    <br>Ký hiệu
+                                                </th>
+                                                <th>Số</th>
+                                                <th>Thanh toán</th>
+                                                <th>Ngày</th>
+                                                <th>Trạng thái</th>
+                                                <th>Thao tác</th>
+                                            </tr>
 
-                                    </thead>
-                                    <tbody>
-                                        <tr class="gradeX">
-                                            <td>
-                                                <!--<input type="checkbox" class="i-checks" name="input[]">-->
-                                                <a data-toggle="modal" href="#modal-form">Dương Triều Anh</a>
-                                            </td>
-                                            <td>kh9999</td>
-                                            <td></td>
-                                            <td class="text-center">
-                                                01GTKT0/003<br>
-                                                MQ/17E
-                                            </td>
-                                            <td></td>
-                                            <td class="text-center not-paid">Chưa thanh toán</td>
-                                            <td class="text-center">20/05/2018</td>
-                                            <td class="text-center"><span class="label label-info">Mới tạo</span></td>
-                                            <td class="table-action text-center">
-                                                <button type="button"><i class="fa fa-pencil"></i>
-                                                </button>
-                                                <button type="button"><i class="fa fa-trash"></i>
-                                                </button>
-                                                <button type="button" disabled><i class="fa fa-check"></i></button>
-                                                <button type="button"><i class="fa fa-send"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr class="gradeX">
-                                            <td>
-                                                <!--<input type="checkbox" class="i-checks" name="input[]">-->
-                                                <a data-toggle="modal" href="#modal-form">Hoàng Nguyễn Minh Giang</a>
-                                            </td>
-                                            <td>kh123</td> 
-                                            <td></td>
-                                            <td class="text-center">
-                                                01GTKT0/003<br>
-                                                MQ/17E
-                                            </td>
-                                            <td>0000002</td>
-                                            <td class="text-center not-paid">
-                                                Chưa thanh toán
-                                            </td>
-                                            <td class="text-center">28/05/2018</td>
-                                            <td class="text-center"><span class="label label-warning">Chờ ký</span></td>
-                                            <td class="table-action text-center">
-                                                <button type="button" disabled><i class="fa fa-pencil"></i>
-                                                </button>
-                                                <button type="button" disabled><i class="fa fa-trash"></i>
-                                                </button>
-                                                <button type="button"><i class="fa fa-check"></i></button>
-                                                <button type="button"><i class="fa fa-send"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr class="gradeX">
-                                            <td>
-                                                <!--<input type="checkbox" class="i-checks" name="input[]">-->
-                                                <a data-toggle="modal" href="#modal-form">Elizabeth</a>
-                                            </td>
-                                            <td>xyz999</td>
-                                            <td></td>
-                                            <td class="text-center">
-                                                01GTKT0/003<br>
-                                                MQ/17E
-                                            </td>
-                                            <td>0000003</td>
-                                            <td class="text-center not-paid">
-                                                Đã thanh toán
-                                            </td>
-                                            <td class="text-center">13/05/2018</td>
-                                            <td class="text-center"><span class="label label-warning">Chờ ký</span></td>
-                                            <td class="table-action text-center">
-                                                <button type="button" disabled><i class="fa fa-pencil"></i>
-                                                </button>
-                                                <button type="button" disabled><i class="fa fa-trash"></i>
-                                                </button>
-                                                <button type="button"><i class="fa fa-check"></i></button>
-                                                <button type="button"><i class="fa fa-send"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr class="gradeX">
-                                            <td>
-                                                <!--<input type="checkbox" class="i-checks" name="input[]">-->
-                                                <a data-toggle="modal" href="#modal-form">Công ty TNHH Canon Việt Nam - Trụ sở Nhà máy Thăng Long</a>
-                                            </td>
-                                            <td>xyz123</td>
-                                            <td></td>
-                                            <td class="text-center">
-                                                01GTKT0/003<br>
-                                                MQ/17E
-                                            </td>
-                                            <td>0000001</td>
-                                            <td class="text-center paid">Đã thanh toán</td>
-                                            <td class="text-center">15/05/2018</td>
-                                            <td class="text-center"><span class="label label-primary">Đã ký</span></td>
-                                            <td class="table-action text-center">
-                                                <button type="button" disabled><i class="fa fa-pencil"></i>
-                                                </button>
-                                                <button type="button" disabled><i class="fa fa-trash"></i>
-                                                </button>
-                                                <button type="button" disabled><i class="fa fa-check"></i>
-                                                <button type="button"><i class="fa fa-send"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <th>Khách hàng</th>
-                                        <th>Mã KH</th>
-                                        <th>Mã tra cứu</th>
-                                        <th>
-                                            Mẫu Số<br>Ký hiệu
-                                        </th>
-                                        <th>Số</th>
-                                        <th>Thanh toán</th>
-                                        <th>Ngày</th>
-                                        <th>Trạng thái</th>
-                                        <th>Thao tác</th>
-                                    </tr>
-                                    </tfoot>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="gradeX">
+                                                <td>
+                                                    <!--<input type="checkbox" class="i-checks" name="input[]">-->
+                                                    <a data-toggle="modal" href="#modal-form">Dương Triều Anh</a>
+                                                </td>
+                                                <td>kh9999</td>
+                                                <td></td>
+                                                <td class="text-center">
+                                                    01GTKT0/003
+                                                    <br> MQ/17E
+                                                </td>
+                                                <td></td>
+                                                <td class="text-center not-paid">Chưa thanh toán</td>
+                                                <td class="text-center">20/05/2018</td>
+                                                <td class="text-center">
+                                                    <span class="label label-info">Mới tạo</span>
+                                                </td>
+                                                <td class="table-action text-center">
+                                                    <button type="button">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </button>
+                                                    <button type="button">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button type="button" disabled>
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                    <button type="button">
+                                                        <i class="fa fa-send"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr class="gradeX">
+                                                <td>
+                                                    <!--<input type="checkbox" class="i-checks" name="input[]">-->
+                                                    <a data-toggle="modal" href="#modal-form">Hoàng Nguyễn Minh Giang</a>
+                                                </td>
+                                                <td>kh123</td>
+                                                <td></td>
+                                                <td class="text-center">
+                                                    01GTKT0/003
+                                                    <br> MQ/17E
+                                                </td>
+                                                <td>0000002</td>
+                                                <td class="text-center not-paid">
+                                                    Chưa thanh toán
+                                                </td>
+                                                <td class="text-center">28/05/2018</td>
+                                                <td class="text-center">
+                                                    <span class="label label-warning">Chờ ký</span>
+                                                </td>
+                                                <td class="table-action text-center">
+                                                    <button type="button" disabled>
+                                                        <i class="fa fa-pencil"></i>
+                                                    </button>
+                                                    <button type="button" disabled>
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button type="button">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                    <button type="button">
+                                                        <i class="fa fa-send"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr class="gradeX">
+                                                <td>
+                                                    <!--<input type="checkbox" class="i-checks" name="input[]">-->
+                                                    <a data-toggle="modal" href="#modal-form">Elizabeth</a>
+                                                </td>
+                                                <td>xyz999</td>
+                                                <td></td>
+                                                <td class="text-center">
+                                                    01GTKT0/003
+                                                    <br> MQ/17E
+                                                </td>
+                                                <td>0000003</td>
+                                                <td class="text-center not-paid">
+                                                    Đã thanh toán
+                                                </td>
+                                                <td class="text-center">13/05/2018</td>
+                                                <td class="text-center">
+                                                    <span class="label label-warning">Chờ ký</span>
+                                                </td>
+                                                <td class="table-action text-center">
+                                                    <button type="button" disabled>
+                                                        <i class="fa fa-pencil"></i>
+                                                    </button>
+                                                    <button type="button" disabled>
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button type="button">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                    <button type="button">
+                                                        <i class="fa fa-send"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr class="gradeX">
+                                                <td>
+                                                    <!--<input type="checkbox" class="i-checks" name="input[]">-->
+                                                    <a data-toggle="modal" href="#modal-form">Công ty TNHH Canon Việt Nam - Trụ sở Nhà máy Thăng Long</a>
+                                                </td>
+                                                <td>xyz123</td>
+                                                <td></td>
+                                                <td class="text-center">
+                                                    01GTKT0/003
+                                                    <br> MQ/17E
+                                                </td>
+                                                <td>0000001</td>
+                                                <td class="text-center paid">Đã thanh toán</td>
+                                                <td class="text-center">15/05/2018</td>
+                                                <td class="text-center">
+                                                    <span class="label label-primary">Đã ký</span>
+                                                </td>
+                                                <td class="table-action text-center">
+                                                    <button type="button" disabled>
+                                                        <i class="fa fa-pencil"></i>
+                                                    </button>
+                                                    <button type="button" disabled>
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button type="button" disabled>
+                                                        <i class="fa fa-check"></i>
+                                                        <button type="button">
+                                                            <i class="fa fa-send"></i>
+                                                        </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Khách hàng</th>
+                                                <th>Mã KH</th>
+                                                <th>Mã tra cứu</th>
+                                                <th>
+                                                    Mẫu Số
+                                                    <br>Ký hiệu
+                                                </th>
+                                                <th>Số</th>
+                                                <th>Thanh toán</th>
+                                                <th>Ngày</th>
+                                                <th>Trạng thái</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </tfoot>
                                     </table>
-                                </div><!-- /Main table -->
+                                </div>
+                                <!-- /Main table -->
 
                                 <!-- Pagination -->
                                 <div class="row table-pagination">
@@ -299,20 +360,25 @@
                                 </div>
 
                             </div>
-                        </div><!-- /.ibox -->
+                        </div>
+                        <!-- /.ibox -->
                     </div>
                 </div>
-            </div><!-- Page content -->
+            </div>
+            <!-- Page content -->
 
             <!-- Page footer -->
             <div class="footer">
                 <div>
                     <strong>Copyright</strong> HiEIS &copy; 2018
                 </div>
-            </div><!-- /Page footer -->
+            </div>
+            <!-- /Page footer -->
 
-        </div><!-- /#page-wrapper -->
-    </div><!-- /#wrapper -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
 
     <div id="modal-form" class="modal fade" aria-hidden="true">
         <div class="modal-dialog">
@@ -345,7 +411,7 @@
 
 
     <!-- Data picker -->
-   <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
     <!-- Page-Level Scripts -->
     <script src="js/script.js"></script>
@@ -353,4 +419,5 @@
 
 
 <!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/table_data_tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Jun 2018 03:14:49 GMT -->
+
 </html>
