@@ -88,6 +88,13 @@
     float: left;
 }
 
+.avatar {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    margin-top: -5px;
+}
+
 table th {
     text-align: center !important;
 }
