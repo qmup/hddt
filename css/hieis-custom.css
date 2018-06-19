@@ -12,8 +12,9 @@
     margin-right: 5px;
 }
 .table-custom td:first-child, .table-custom td:last-child {
-    width: 20%;
-}   
+    width: 80px;
+}
+
 .table-action button {
     border: none;
     background: none;
@@ -37,11 +38,8 @@
     top: -20px;
     font-size: 12px;
 }
-.payment::before {
-    content: 'Thanh toán';
-}
-.status::before {
-    content: 'Trạng thái';
+.bank::before {
+    content: 'Ngân hàng';
 }
 .price::before {
     content: 'Đơn giá';
@@ -66,6 +64,36 @@
 .label-info {
     color: #f05a3a;
     border-color: #f05a3a;
+}
+
+.btn-close-modal {
+    margin-bottom: 10px;
+}
+
+.modal-body {
+    padding: 20px 30px 0px 30px !important;
+}
+
+.datepicker-modal {
+    padding-bottom: 20px;
+}
+
+.table-search-group .col-md-3:nth-child(5), 
+.table-search-group .col-md-3:nth-child(6),
+.table-search-group .col-md-3:nth-child(7) {
+    margin-top: 10px !important;
+}
+
+.dataTables_info, .dt-buttons {
+    float: left;
+}
+
+table th {
+    text-align: center !important;
+}
+
+table > thead, tfoot {
+    color: #f05a3a;
 }
 
 @media (min-width: 768px) {
