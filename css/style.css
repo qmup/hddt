@@ -651,8 +651,8 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   color: #fff;
 }
 .btn-primary {
-  background-color: #1ab394;
-  border-color: #1ab394;
+  background-color: #f05a3a;
+  border-color: #f05a3a;
   color: #FFFFFF;
 }
 .btn-primary:hover,
@@ -664,8 +664,8 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 .btn-primary:active:hover,
 .btn-primary.active:hover,
 .btn-primary.active:focus {
-  background-color: #18a689;
-  border-color: #18a689;
+  background-color: #f05a3a;
+  border-color: #f05a3a;
   color: #FFFFFF;
 }
 .btn-primary:active,
@@ -4692,10 +4692,10 @@ body.mini-navbar.fixed-sidebar .logo-element {
   margin: 0 auto;
   padding-top: 40px;
 }
-.lockscreen.middle-box {
+/* .lockscreen.middle-box {
   width: 200px;
   padding-top: 110px;
-}
+} */
 .loginscreen.middle-box {
   width: 300px;
 }

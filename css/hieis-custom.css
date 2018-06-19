@@ -1,10 +1,11 @@
+/*color theme before: #23c6c8*/
 .login-background {
     background: url('../img/workspace-1.jpg');
     background-size: cover;
 }
 .middle-box h1 {
     font-size: 140px;
-    color: #1ab394;
+    color: #f05a3a;
 }
 
 .main-action i.fa {
@@ -21,7 +22,7 @@
     outline: none;
 }
 .table-action button i.fa {
-    color: #18a689;
+    color: #f05a3a;
     font-size: 24px;
 }
 .table-action button:disabled i.fa {
@@ -59,13 +60,14 @@
     border-color: #f8ac59;
 }
 .label-primary {
-    color: #1ab394;
-    border-color: #1ab394;
+    color: #f05a3a;
+    border-color: #f05a3a;
 }
 .label-info {
-    color: #23c6c8;
-    border-color: #23c6c8;
+    color: #f05a3a;
+    border-color: #f05a3a;
 }
+
 @media (min-width: 768px) {
     .modal-dialog {
         width: 800px;
