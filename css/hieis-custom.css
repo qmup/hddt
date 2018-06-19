@@ -1,0 +1,73 @@
+.login-background {
+    background: url('../img/workspace-1.jpg');
+    background-size: cover;
+}
+.middle-box h1 {
+    font-size: 140px;
+    color: #1ab394;
+}
+
+.main-action i.fa {
+    margin-right: 5px;
+}
+.table-custom td:first-child, .table-custom td:last-child {
+    width: 20%;
+}   
+.table-action button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0 3px;
+    outline: none;
+}
+.table-action button i.fa {
+    color: #18a689;
+    font-size: 24px;
+}
+.table-action button:disabled i.fa {
+    color: #aca9a9;
+}
+.table-search-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.filter::before {
+    position: absolute;
+    top: -20px;
+    font-size: 12px;
+}
+.payment::before {
+    content: 'Thanh toán';
+}
+.status::before {
+    content: 'Trạng thái';
+}
+.price::before {
+    content: 'Đơn giá';
+}
+.dataTables_filter {
+    display: none;
+}
+.ibox .label {
+    font-size: 13px;
+    background: none;
+    border-width: 1px;
+    border-style: solid;
+}
+.label-warning {
+    color: #f8ac59;
+    border-color: #f8ac59;
+}
+.label-primary {
+    color: #1ab394;
+    border-color: #1ab394;
+}
+.label-info {
+    color: #23c6c8;
+    border-color: #23c6c8;
+}
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 800px;
+    }
+}
