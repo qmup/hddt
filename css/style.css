@@ -177,14 +177,14 @@ h5 {
 }
 .navbar-header {
   position: relative;
-  top:20px;
+  top:5px;
 }
 .dropdown-toggle {
   background: transparent !important;
 }
 .navbar-top-menu-item {
   position:relative; 
-  bottom:30px;
+  bottom:15px;
 }
 .pace-done .nav-header {
   transition: all 0.4s;
@@ -295,6 +295,9 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
 }
 .mini-navbar li.active .nav-second-level {
   left: 65px;
+}
+.navbar {
+  line-height: 0.8;
 }
 .navbar-default .special_link a {
   background: #f05a3a;
