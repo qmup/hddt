@@ -108,3 +108,13 @@ table > thead, tfoot {
         width: 800px;
     }
 }
+
+@media (max-width: 976px) {
+    input {
+        margin-bottom: 5px;
+    }
+
+    select {
+        margin-top: 20px;
+    }
+}
