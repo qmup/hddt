@@ -82,6 +82,13 @@ h5 {
 .body-small .navbar-top-links li:last-child {
   margin-right: 0;
 }
+.navbar-top-links {
+  position:relative;
+  top:2px;
+}
+.profile-element {
+  top:5px;
+}
 .navbar-top-links li a {
   padding: 0px 10px;
   min-height: 50px;
@@ -109,6 +116,7 @@ h5 {
   text-align: left;
   font-weight: normal;
 }
+
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:focus,
 .dropdown-menu > .active > a:hover {
@@ -8497,9 +8505,20 @@ body.md-skin {
     display: none;
   }
   .navbar-header {
-    display: inline;
+    display: block;
     float: left;
   }
+
+  .navbar-top-links {
+    display:block;
+    float:right;
+    margin-right:24px;
+  }
+  .navbar-top-links .dropdown-menu {
+    position: absolute;
+    left:-95px;
+  }
+
   .sidebar-panel {
     z-index: 2;
     position: relative;
