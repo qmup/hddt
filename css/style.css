@@ -1928,7 +1928,7 @@ div.dt-button-info {
 }
 .form-control:focus,
 .single-line:focus {
-  border-color: rgb(240, 90, 58);
+  border-bottom: rgb(240, 90, 58);
 } 
 .has-success .form-control,
 .has-success .form-control:focus {
