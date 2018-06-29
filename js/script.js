@@ -21,7 +21,7 @@ APP_PUBLIC.DataTableCustom = function () {
         });
 
         $(container).find('#search-name').on('keyup', function () {
-          table.columns(1).search(this.value).draw();
+          table.columns(0).search(this.value).draw();
         });
 
         $(container).find('#search-account').on('keyup', function () {
@@ -44,6 +44,7 @@ APP_PUBLIC.DataTableCustom = function () {
           $(container).find('#search-bank').on('change', function () {
             table.columns(filterOptions.bank).search(this.value).draw();
           });
+          
         }
 
         if (callback !== undefined)
@@ -79,7 +80,7 @@ APP_PUBLIC.ManageInvoices = function () {
 
     // enable filter with column index
     var filterOptions = {
-      bank: 4
+      bank: 0
     }
 
 
