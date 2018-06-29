@@ -9,16 +9,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HDDT | Khách hàng</title>
+    <title>HDDT | Hóa đơn</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/plugins/simplelineicon/css/simple-line-icons.css" rel="stylesheet">
     <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
     <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-
+    
+    <!-- Swiper css-->
+    <link href="css/plugins/swiper/swiper.min.css" rel="stylesheet">
+    
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/hoadon.css" rel="stylesheet">
     <link href="css/hieis-custom.css" rel="stylesheet">
 </head>
 
@@ -34,7 +40,7 @@
                             <img class="nav-logo" src="img/qtsc_logo.png" alt="logo" />
                         </li>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="invoice.html">
                             <i class="fa fa-th-large"></i>
                             <span class="nav-label">Hóa đơn</span>
@@ -52,7 +58,7 @@
                             <span class="nav-label">Công nợ</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="khachhang.html">
                             <i class="fa fa-users"></i>
                             <span class="nav-label">Khách hàng</span>
@@ -134,34 +140,50 @@
                                 <!-- Search group -->
                                 <div class="row table-search-group">
                                     <div class="col-md-3">
-                                        <input id="search-code" class="form-control" placeholder="Mã số">
-                                    </div>
-                                    <div class="col-md-3">
                                         <input id="search-name" class="form-control" placeholder="Tên khách hàng">
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="search-email" class="form-control" placeholder="Email">
+                                        <input id="search-code" class="form-control" placeholder="Số hóa đơn">
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="filter bank">
-                                            <select id="search-bank" class="form-control">
-                                                <option value="">Tất cả</option>
-                                                <option>Vietcombank</option>
-                                                <option>Sacombank</option>
-                                                <option>Techcombank</option>
-                                                <option>Viettinbank</option>
-                                            </select>
+                                    <div class="col-md-2">
+                                        <select id="search-unit" class="form-control">
+                                            <option selected disabled>Đơn vị</option>
+                                            <option value="">Tất cả</option>
+                                            <option>$</option>
+                                            <option>VND</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="date">
+                                            <div id="search-date" class="input-daterange input-group" id="datepicker">
+                                                <input id="min" type="text" class="input-md form-control" name="min" placeholder="Từ" />
+                                                <span class="input-group-addon">...</span>
+                                                <input id="max" type="text" class="input-md form-control" name="max" placeholder="Đến" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input id="search-account" class="form-control" placeholder="Tên tài khoản">
                                     </div>
                                     <div class="col-md-3">
                                         <input id="search-address" class="form-control" placeholder="Địa chỉ">
                                     </div>
                                     <div class="col-md-3">
-                                        <input id="search-phone" class="form-control" placeholder="Số điện thoại">
+                                        <select id="search-status" class="form-control">
+                                            <option disabled selected>Trạng thái</option>
+                                            <option value="">Tất cả</option>
+                                            <option>Đã thanh toán</option>
+                                            <option>Chưa thanh toán</option>
+                                        </select>
                                     </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-4">
+                                        <div class="amount">
+                                            <div id="search-date" class="input-daterange input-group">
+                                                <input id="search-min" type="text" class="input-md form-control" name="min" placeholder="Từ" />
+                                                <span class="input-group-addon">...</span>
+                                                <input id="search-max" type="text" class="input-md form-control" name="max" placeholder="Đến" />
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <!-- /Search group -->
 
@@ -170,83 +192,87 @@
                                     <table class="table table-striped table-bordered table-hover table-custom" id="invoice-table">
                                         <thead>
                                             <tr>
-                                                <th>Mã số</th>
-                                                <th>Tên tài khoản</th>
                                                 <th>Tên</th>
                                                 <th>Địa chỉ</th>
-                                                <th>Ngân hàng</th>
-                                                <th>Email</th>
-                                                <th>Số điện thoại</th>
+                                                <th>Ngày</th>
+                                                <th>Số hóa đơn</th>
+                                                <th>Đơn vị</th>
+                                                <th>Thành tiền</th>
+                                                <th>Trạng thái</th>
                                                 <th>Thao tác</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class="gradeX">
-                                                <td>1</td>
-                                                <td>nguyenvana</td>
-                                                <td>Nguyễn Văn A</td>
-                                                <td>123/456 Quang Trung</td>
-                                                <td>Vietcombank</td>
-                                                <td>nguyenvana@gmail.com</td>
-                                                <td>0909234346</td>
+                                                <td>QTSC</td>
+                                                <td>123452541</td>
+                                                <td>06/05/2017</td>
+                                                <td>11124</td>
+                                                <td>VND</td>
+                                                <td>46,080</td>
+                                                <td>Chưa thanh toán</td>
                                                 <td class="table-action text-center">
+                                                    <button type="button" class="check">
+                                                        <i class="icon material-icons">done</i>
+                                                    </button>
+                                                    <button type="button" class="cancel">
+                                                        <i class="icon material-icons">clear</i>
+                                                    </button>
                                                     <button type="button" data-toggle="modal" href="#modal-form">
-                                                        <i class="fa fa-history"></i>
+                                                        <i class="icon material-icons">visibility</i>
                                                     </button>
                                                 </td>
                                             </tr>
                                             <tr class="gradeX">
-                                                <td>2</td>
-                                                <td>tranthib</td>
-                                                <td>Trần Thị B</td>
-                                                <td>987/654 Tô Ký</td>
-                                                <td>Sacombank</td>
-                                                <td>tranthib@gmail.com</td>
-                                                <td>0923735582</td>
+                                                <td>Hisoft</td>
+                                                <td>123452569</td>
+                                                <td>06/02/2018</td>
+                                                <td>11126</td>
+                                                <td>$</td>
+                                                <td>10,000</td>
+                                                <td>Chưa thanh toán</td>
                                                 <td class="table-action text-center">
+                                                    <button type="button" class="check">
+                                                        <i class="icon material-icons">done</i>
+                                                    </button>
+                                                    <button type="button" class="cancel">
+                                                        <i class="icon material-icons">clear</i>
+                                                    </button>
                                                     <button type="button" data-toggle="modal" href="#modal-form">
-                                                        <i class="fa fa-history"></i>
+                                                           <i class="icon material-icons">visibility</i>
                                                     </button>
                                                 </td>
                                             </tr>
                                             <tr class="gradeX">
-                                                <td>3</td>
-                                                <td>phamvanc</td>
-                                                <td>Phạm Văn C</td>
-                                                <td>G2 Nguyễn Ái Quốc</td>
-                                                <td>Techcombank</td>
-                                                <td>phamvanc@gmail.com</td>
-                                                <td>0909341221</td>
+                                                <td>FPT</td>
+                                                <td>123452543</td>
+                                                <td>06/05/2016</td>
+                                                <td>11123</td>
+                                                <td>$</td>
+                                                <td>10,000,000</td>
+                                                <td>Đã thanh toán</td>
                                                 <td class="table-action text-center">
-                                                    <button type="button" data-toggle="modal" href="#modal-form">
-                                                        <i class="fa fa-history"></i>
+                                                    <button type="button" class="check">
+                                                        <i class="icon material-icons">done</i>
                                                     </button>
-                                                </td>
-                                            </tr>
-                                            <tr class="gradeX">
-                                                <td>4</td>
-                                                <td>levand</td>
-                                                <td>Lê Văn D</td>
-                                                <td>99 Phạm Văn Đồng</td>
-                                                <td>Viettinbank</td>
-                                                <td>levand@gmail.com</td>
-                                                <td>0977492538</td>
-                                                <td class="table-action text-center">
+                                                    <button type="button" class="cancel">
+                                                        <i class="icon material-icons">clear</i>
+                                                    </button>
                                                     <button type="button" data-toggle="modal" href="#modal-form">
-                                                        <i class="fa fa-history"></i>
-                                                    </button> 
+                                                        <i class="icon material-icons">visibility</i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Mã số</th>
-                                                <th>Tên tài khoản</th>
                                                 <th>Tên</th>
                                                 <th>Địa chỉ</th>
-                                                <th>Ngân hàng</th>
-                                                <th>Email</th>
-                                                <th>Số điện thoại</th>
+                                                <th>Ngày</th>
+                                                <th>Số hóa đơn</th>
+                                                <th>Đơn vị</th>
+                                                <th>Thành tiền</th>
+                                                <th>Trạng thái</th>
                                                 <th>Thao tác</th>
                                             </tr>
                                         </tfoot>
@@ -284,37 +310,25 @@
     <div id="modal-form" class="modal fade" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-body row text-center">
-                    <h4>Lịch sử khách hàng</h4>
-                    <div class="col-md-offset-3">
-                        <div id="search-date" class="input-daterange input-group datepicker-modal" id="datepicker">
-                            <input id="min" type="text" class="input-sm form-control" name="min" placeholder="Từ ngày" />
-                            <span class="input-group-addon">đến</span>
-                            <input id="max" type="text" class="input-sm form-control" name="max" placeholder="Đến ngày" />
+                <div class="modal-body row text-center" id="index">
+                    <!-- Slider main container -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="img/hoadon.png" alt="image" class="invoice-image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/hoadon.png" alt="image" class="invoice-image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/hoadon.png" alt="image" class="invoice-image">
+                            </div>
                         </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
-                    <table class="table table-modal table-striped table-bordered table-hover table-custom">
-                        <thead>
-                            <tr>
-                                <th>Ngày</th>
-                                <th>Nội dung</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="gradeX">
-                                <td>12/12/2016</td>
-                                <td>Nội dung 1</td>
-                            </tr>
-                            <tr class="gradeX">
-                                <td>12/02/2017</td>
-                                <td>Nội dung 1</td>
-                            </tr>
-                            <tr class="gradeX">
-                                <td>25/01/2016	</td>
-                                <td>Nội dung 3</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
                 </div>
                 <div class="text-center">
                     <button type="button" class="btn btn-primary btn-close-modal" data-dismiss="modal">Close</button>
@@ -328,7 +342,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
+    <script src="js/plugins/f"></script>
     <script src="js/plugins/dataTables/datatables.min.js"></script>
     <script src="js/moment.js"></script>
 
@@ -342,12 +356,17 @@
     <!-- iCheck -->
     <script src="js/plugins/iCheck/icheck.min.js"></script>
 
+    <!-- Sweetalert 2-->
+    <script src="js/plugins/sweetalert/sweetalert2.all.js"></script>
+
+    <!-- Swiper -->
+    <script src="js/plugins/swiper/swiper.min.js"></script>
 
     <!-- Data picker -->
     <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
     <!-- Page-Level Scripts -->
-    <script src="js/script.js"></script>
+    <script src="js/hoadon.js"></script>
 </body>
 
 

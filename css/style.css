@@ -1924,10 +1924,7 @@ div.dt-button-info {
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
   width: 100%;
 }
-.form-control:focus,
-.single-line:focus {
-  border-color: rgb(240, 90, 58);
-} 
+
 .has-success .form-control,
 .has-success .form-control:focus {
   border-color: rgb(240, 90, 58);
