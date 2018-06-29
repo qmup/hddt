@@ -13,13 +13,17 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
     <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
+    <link href="css/plugins/swiper/swiper.min.css" rel="stylesheet">
+
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/hieis-custom.css" rel="stylesheet">
+    <link href="css/thongbaophi.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -35,7 +39,7 @@
                         </li>
                     </li>
                     <li>
-                        <a href="invoice.html">
+                        <a href="hoadon.html">
                             <i class="fa fa-th-large"></i>
                             <span class="nav-label">Hóa đơn</span>
                         </a>
@@ -144,16 +148,13 @@
                                     </div>
                                     <div class="col-md-3 filter-input">
                                         <span class="filter-name">Từ ngày</span>
-                                        <input id="search-dateFrom" type="date" class="form-control" name="min" />
-                                        <!-- <div id="search-date" class="input-daterange input-group">
-                                            <input id="min" type="text" class="input-sm form-control" name="min" placeholder="Từ ngày" />
-                                            <span class="input-group-addon">đến</span>
-                                            <input id="max" type="text" class="input-sm form-control" name="max" placeholder="dd/mm/yyyy" /> 
-                                        </div> -->
+                                        <input id="search-dateFrom" type="text" class="form-control" />
                                     </div>
                                     <div class="col-md-3 filter-input">
-                                        <input id="search-moneyFrom" type="number" class="form-control" placeholder="Thành tiền từ">
+                                        <span class="filter-name">Đến ngày</span>
+                                        <input id="search-dateTo" type="text" class="form-control" />
                                     </div>
+
                                     <div class="col-md-3 filter-input">
                                         <div class="filter status">
                                             <span class="filter-name">Trạng thái</span>
@@ -177,11 +178,10 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3 filter-input">
-                                        <span class="filter-name">Đến ngày</span>
-                                        <input id="search-dateTo" type="date" class="form-control" name="max" />
+                                        <input id="search-moneyFrom" type="number" class="form-control" placeholder="Thành tiền từ">
                                     </div>
                                     <div class="col-md-3 filter-input">
-                                        <input id="search-moneyTo" type="number" class="form-control" placeholder="Thành tiền đến">
+                                        <input id="search-moneyTo" type="number" class="form-control" placeholder="Thành tiền đến" />
                                     </div>
                                     <div class="col-md-3 filter-input">
                                         <div class="filter moneyUnit">
@@ -201,10 +201,10 @@
 
                                     </div>
                                     <div class="col-md-6 right text-right">
-                                        <button type="button" class="btn main-action" style="background-color: green;color:white">
+                                        <button type="button" class="btn main-action check" style="background-color: green;color:white">
                                             Duyệt
                                         </button>
-                                        <button type="button" class="btn main-action" style="background-color: red;color:white">
+                                        <button type="button" class="btn main-action cancel" style="background-color: red;color:white">
                                             Không duyệt
                                         </button>
                                     </div>
@@ -215,8 +215,8 @@
                                     <table class="table table-striped table-bordered table-hover table-custom" id="thongbaophi">
                                         <thead>
                                             <tr>
-                                                <th>
-                                                    <input type="checkbox" class="i-checks" id="checkMulti">Khách hàng
+                                                <th class="text-left">
+                                                    <input type="checkbox" class="i-checks" id="checkMulti">&nbsp;Khách hàng
                                                 </th>
                                                 <th>Tòa nhà</th>
                                                 <th>Ngày</th>
@@ -230,8 +230,8 @@
                                         </thead>
                                         <tbody>
                                             <tr class="gradeX">
-                                                <td class="text-center">
-                                                    <input type="checkbox" class="i-checks checkTBP" id="checkTBP"> Cty FPT
+                                                <td class="text-left">
+                                                    <input type="checkbox" class="i-checks checkTBP"> Cty FPT
                                                 </td>
                                                 <td class="text-center">1</td>
                                                 <td class="text-center">04/04/2018</td>
@@ -239,7 +239,39 @@
                                                     Thu phí cho thuê máy chủ ảo
                                                 </td>
                                                 <td class="text-center">
-                                                    10000000
+                                                    10,000,000
+                                                </td>
+                                                <td class="text-center">
+                                                    VND
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-warning">Chờ duyệt</span>
+                                                </td>
+
+                                                <td class="table-action">
+                                                    <button type="button" class="check" data-toggle="tooltip" data-placement="top" title="duyệt">
+                                                        <i class="icon material-icons">done</i>
+                                                    </button>
+                                                    <button type="button" class="cancel" data-toggle="tooltip" data-placement="top" title="không duyệt">
+                                                        <i class="icon material-icons">clear</i>
+                                                    </button>
+                                                    <button type="button" data-toggle="modal" href="#modal-form">
+                                                        <i class="icon material-icons" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">visibility</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="gradeX">
+                                                <td class="text-left">
+                                                    <input type="checkbox" class="i-checks checkTBP"> Cty FPT
+                                                </td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">01/04/2018</td>
+                                                <td class="text-center">
+                                                    Thu phí an ninh
+                                                </td>
+                                                <td class="text-center">
+                                                    100,000
                                                 </td>
                                                 <td class="text-center">
                                                     VND
@@ -248,142 +280,111 @@
                                                     <span class="label label-warning">Chờ duyệt</span>
                                                 </td>
                                                 <td class="table-action">
-                                                    <button type="button" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">
-                                                        <i class="fa fa-eye"></i>
+                                                    <button type="button" class="check" data-toggle="tooltip" data-placement="top" title="duyệt">
+                                                        <i class="icon material-icons">done</i>
                                                     </button>
-                                                    <button type="button" data-toggle="tooltip" data-placement="top" title="duyệt hóa đơn">
-                                                        <i class="fa fa-pencil"></i>
+                                                    <button type="button" class="cancel" data-toggle="tooltip" data-placement="top" title="không duyệt">
+                                                        <i class="icon material-icons">clear</i>
                                                     </button>
-                                                    <button type="button">
-                                                        <i class="fa fa-send" data-toggle="tooltip" data-placement="top" title="xuất hóa đơn"></i>
+                                                    <button type="button" data-toggle="modal" href="#modal-form">
+                                                        <i class="icon material-icons" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">visibility</i>
                                                     </button>
                                                 </td>
                                             </tr>
 
                                             <tr class="gradeX">
-                                                    <td class="text-center">
-                                                        <input type="checkbox" class="i-checks checkTBP" id="checkTBP"> Cty FPT
-                                                    </td>
-                                                    <td class="text-center">2</td>
-                                                    <td class="text-center">01/04/2018</td>
-                                                    <td class="text-center">
-                                                        Thu phí an ninh
-                                                    </td>
-                                                    <td class="text-center">
-                                                        100000
-                                                    </td>
-                                                    <td class="text-center">
-                                                        VND
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label label-warning">Chờ duyệt</span>
-                                                    </td>
-                                                    <td class="table-action">
-                                                        <button type="button" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">
-                                                            <i class="fa fa-eye"></i>
-                                                        </button>
-                                                        <button type="button" data-toggle="tooltip" data-placement="top" title="duyệt hóa đơn">
-                                                            <i class="fa fa-pencil"></i>
-                                                        </button>
-                                                        <button type="button">
-                                                            <i class="fa fa-send" data-toggle="tooltip" data-placement="top" title="xuất hóa đơn"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
+                                                <td class="text-left">
+                                                    <input type="checkbox" class="i-checks checkTBP"> Cty KMS
+                                                </td>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">01/04/2018</td>
+                                                <td class="text-center">
+                                                    Thu phí cho dịch vụ hạ tầng
+                                                </td>
+                                                <td class="text-center">
+                                                    500
+                                                </td>
+                                                <td class="text-center">
+                                                    $
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-warning">Đã gửi</span>
+                                                </td>
+                                                <td class="table-action">
+                                                    <button type="button" class="check" data-toggle="tooltip" data-placement="top" title="duyệt">
+                                                        <i class="icon material-icons">done</i>
+                                                    </button>
+                                                    <button type="button" class="cancel" data-toggle="tooltip" data-placement="top" title="không duyệt">
+                                                        <i class="icon material-icons">clear</i>
+                                                    </button>
+                                                    <button type="button" data-toggle="modal" href="#modal-form">
+                                                        <i class="icon material-icons" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">visibility</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
 
-                                                <tr class="gradeX">
-                                                        <td class="text-center">
-                                                            <input type="checkbox" class="i-checks checkTBP" id="checkTBP"> Cty KMS
-                                                        </td>
-                                                        <td class="text-center">1</td>
-                                                        <td class="text-center">01/04/2018</td>
-                                                        <td class="text-center">
-                                                            Thu phí cho dịch vụ hạ tầng
-                                                        </td>
-                                                        <td class="text-center">
-                                                            500
-                                                        </td>
-                                                        <td class="text-center">
-                                                            $
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <span class="label label-warning">Đã gửi</span>
-                                                        </td>
-                                                        <td class="table-action">
-                                                            <button type="button" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">
-                                                                <i class="fa fa-eye"></i>
-                                                            </button>
-                                                            <button type="button" data-toggle="tooltip" data-placement="top" title="duyệt hóa đơn">
-                                                                <i class="fa fa-pencil"></i>
-                                                            </button>
-                                                            <button type="button">
-                                                                <i class="fa fa-send" data-toggle="tooltip" data-placement="top" title="xuất hóa đơn"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
+                                            <tr class="gradeX">
+                                                <td class="text-left">
+                                                    <input type="checkbox" class="i-checks checkTBP"> Cty Bravo
+                                                </td>
+                                                <td class="text-center">3</td>
+                                                <td class="text-center">20/04/2018</td>
+                                                <td class="text-center">
+                                                    Thu phí an ninh
+                                                </td>
+                                                <td class="text-center">
+                                                    100,000
+                                                </td>
+                                                <td class="text-center">
+                                                    VND
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-warning">Đã duyệt</span>
+                                                </td>
+                                                <td class="table-action">
+                                                    <button type="button" class="check" data-toggle="tooltip" data-placement="top" title="duyệt">
+                                                        <i class="icon material-icons">done</i>
+                                                    </button>
+                                                    <button type="button" class="cancel" data-toggle="tooltip" data-placement="top" title="không duyệt">
+                                                        <i class="icon material-icons">clear</i>
+                                                    </button>
+                                                    <button type="button" data-toggle="modal" href="#modal-form">
+                                                        <i class="icon material-icons" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">visibility</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
 
-                                                    <tr class="gradeX">
-                                                            <td class="text-center">
-                                                                <input type="checkbox" class="i-checks checkTBP" id="checkTBP"> Cty Bravo
-                                                            </td>
-                                                            <td class="text-center">3</td>
-                                                            <td class="text-center">04/20/2018</td>
-                                                            <td class="text-center">
-                                                                Thu phí an ninh
-                                                            </td>
-                                                            <td class="text-center">
-                                                                100000
-                                                            </td>
-                                                            <td class="text-center">
-                                                                VND
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <span class="label label-warning">Đã duyệt</span>
-                                                            </td>
-                                                            <td class="table-action">
-                                                                <button type="button" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">
-                                                                    <i class="fa fa-eye"></i>
-                                                                </button>
-                                                                <button type="button" data-toggle="tooltip" data-placement="top" title="duyệt hóa đơn">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </button>
-                                                                <button type="button">
-                                                                    <i class="fa fa-send" data-toggle="tooltip" data-placement="top" title="xuất hóa đơn"></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
+                                            <tr class="gradeX">
+                                                <td class="text-left">
+                                                    <input type="checkbox" class="i-checks checkTBP"> Cty FPT4
+                                                </td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">04/05/2018</td>
+                                                <td class="text-center">
+                                                    Thu phí cho thuê máy chủ ảo
+                                                </td>
+                                                <td class="text-center">
+                                                    10,000,000
+                                                </td>
+                                                <td class="text-center">
+                                                    VND
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="label label-warning">Chờ duyệt</span>
+                                                </td>
+                                                <td class="table-action">
+                                                    <button type="button" class="check" data-toggle="tooltip" data-placement="top" title="duyệt">
+                                                        <i class="icon material-icons">done</i>
+                                                    </button>
+                                                    <button type="button" class="cancel" data-toggle="tooltip" data-placement="top" title="không duyệt">
+                                                        <i class="icon material-icons">clear</i>
+                                                    </button>
+                                                    <button type="button" data-toggle="modal" href="#modal-form">
+                                                        <i class="icon material-icons" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">visibility</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
 
-                                                        <tr class="gradeX">
-                                                                <td class="text-center">
-                                                                    <input type="checkbox" class="i-checks checkTBP" id="checkTBP"> Cty FPT4
-                                                                </td>
-                                                                <td class="text-center">2</td>
-                                                                <td class="text-center">04/05/2018</td>
-                                                                <td class="text-center">
-                                                                    Thu phí cho thuê máy chủ ảo
-                                                                </td>
-                                                                <td class="text-center">
-                                                                    10000000
-                                                                </td>
-                                                                <td class="text-center">
-                                                                    VND
-                                                                </td>
-                                                                <td class="text-center">
-                                                                    <span class="label label-warning">Chờ duyệt</span>
-                                                                </td>
-                                                                <td class="table-action">
-                                                                    <button type="button" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">
-                                                                        <i class="fa fa-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" data-toggle="tooltip" data-placement="top" title="duyệt hóa đơn">
-                                                                        <i class="fa fa-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button">
-                                                                        <i class="fa fa-send" data-toggle="tooltip" data-placement="top" title="xuất hóa đơn"></i>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                
                                         </tbody>
                                         <!-- <tfoot>
                                             <tr>
@@ -426,6 +427,35 @@
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
+    <div id="modal-form" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body row text-center" id="index">
+                    <!-- Slider main container -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="img/hoadon.png" alt="image" class="invoice-image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/hoadon.png" alt="image" class="invoice-image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/hoadon.png" alt="image" class="invoice-image">
+                            </div>
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-close-modal" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -435,9 +465,9 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
+    <script src="js/plugins/f"></script>
     <script src="js/plugins/dataTables/datatables.min.js"></script>
-    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="js/moment.js"></script>
 
     <!-- Peity -->
     <script src="js/plugins/peity/jquery.peity.min.js"></script>
@@ -452,8 +482,15 @@
     <!-- Data picker -->
     <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
+    <!-- Sweetalert 2-->
+    <script src="js/plugins/sweetalert/sweetalert2.all.js"></script>
+
+    <!-- Swiper -->
+    <script src="js/plugins/swiper/swiper.min.js"></script>
+
     <!-- Page-Level Scripts -->
     <script src="js/thongbaophi.js"></script>
+
 </body>
 
 <!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/table_data_tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Jun 2018 03:14:49 GMT -->

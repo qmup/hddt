@@ -1,3 +1,4 @@
+
 window.APP_PUBLIC = {};
 
 /* Region: custom helper functions for DataTable */
@@ -36,25 +37,33 @@ APP_PUBLIC.DataTableCustom = function () {
             table.columns(filterOptions.service).search(this.value).draw();
           });
         }
+
+        if (filterOptions.moneyUnit !== undefined) {
+          $(container).find('#search-moneyUnit').on('change', function () {
+            table.columns(filterOptions.moneyUnit).search(this.value).draw();
+          });
+        }
+
         if (filterOptions.date !== undefined) {
-          /* Custom filtering function which will search date between two dates */
           $.fn.dataTable.ext.search.push(
             function (settings, data, dataIndex) {
-              var minDate = $('#search-dateFrom');
-              var maxDate = $('#search-dateTo').val();
-              var date = data[filterOptions.date] || 0;
-              console.log("min: "+minDate+", max: "+maxDate+", date: "+date);
-              
-              return false;
+              const DATE_FORMAT = 'DD/MM/YYYY';
+              var $min = $('#search-dateFrom');
+              var $max = $('#search-dateTo');
+
+              var minDate = moment('01/01/1900'), maxDate = moment('01/01/9999');
+              if ($min.val() !== '')
+                minDate = moment($min.datepicker('getDate'), DATE_FORMAT);
+
+              if ($max.val() !== '')
+                maxDate = moment($max.datepicker('getDate'), DATE_FORMAT);
+
+              var currDate = moment(data[filterOptions.date], DATE_FORMAT);
+              return minDate <= currDate && currDate <= maxDate;
             }
           );
           $('#search-dateFrom, #search-dateTo').change(function () {
             table.draw();
-          });
-        }
-        if (filterOptions.moneyUnit !== undefined) {
-          $(container).find('#search-moneyUnit').on('change', function () {
-            table.columns(filterOptions.moneyUnit).search(this.value).draw();
           });
         }
 
@@ -64,7 +73,7 @@ APP_PUBLIC.DataTableCustom = function () {
             function (settings, data, dataIndex) {
               var min = parseFloat($('#search-moneyFrom').val());
               var max = parseFloat($('#search-moneyTo').val());
-              var money = parseFloat(data[filterOptions.money]) || 0;
+              var money = parseFloat(data[filterOptions.money].replace(/\,/g, '')) || 0;
 
               if ((isNaN(min) && isNaN(max)) ||
                 (isNaN(min) && money <= max) ||
@@ -83,9 +92,18 @@ APP_PUBLIC.DataTableCustom = function () {
           callback();
       }
     });
+    //Init datepicker
+    $(container).find('#search-dateTo, #search-dateFrom').datepicker({
+      format: 'dd/mm/yyyy',
+      keyboardNavigation: false,
+      forceParse: false,
+      autoclose: true,
+      onSelect: function () {
+        table.draw();
+      }
+    });
 
   }
-
   return {
     initDataTable: initDataTable
   }
@@ -136,13 +154,103 @@ APP_PUBLIC.ManageThongBaoPhi = function () {
 
 $(document).ready(function () {
   APP_PUBLIC.ManageThongBaoPhi.init();
-  $('#checkMulti').click(function(){
-    $('.checkTBP').prop("checked",true);
-  });
-  $('#checkMulti').click(function(){
-    $('.checkTBP').prop("checked",false);
+  //init sweet alert
+  $(".check").click(function () {
+    swal({
+      title: 'Bạn có chắc không ?',
+      text: "Bạn không thể hoàn tác lại hành động này!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Có',
+      cancelButtonText: 'Không'
+    }).then((result) => {
+      if (result.value) {
+        swal(
+          'Đã chấp nhận!',
+          'Thực hiện thành công.',
+          'success'
+        )
+      }
+    })
   });
 
+  $(".cancel").click(function () {
+    swal({
+      title: 'Bạn có chắc không ?',
+      text: "Bạn không thể hoàn tác lại hành động này!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Có',
+      cancelButtonText: 'Không'
+    }).then((result) => {
+      if (result.value) {
+        swal(
+          'Đã từ chối!',
+          'Đã từ chối thành công.',
+          'success'
+        )
+      }
+    })
+  });
+
+  //select all check boxes
+  $('#checkMulti').click(function () {
+    var c = this.checked;
+    if (c == true) {
+      $('.thongbaophi .main-action').show();
+    }
+    else {
+      $('.thongbaophi .main-action').hide();
+    }
+    $('.checkTBP').each(function (index, value) {
+      value.checked = c;
+    })
+  })
+  //show button when check
+  $('.checkTBP').each(function (index, value) {
+    $(value).click(function () {
+      if (value.checked == true) {
+        $('.thongbaophi .main-action').show();
+      }
+
+      var hide = 0;
+      //true = 1, false = 0
+      $('.checkTBP').each(function (index, value) {
+        hide += value.checked;
+      })
+      if (hide == 0) {
+        $('.thongbaophi .main-action').hide();
+      }
+    })
+  })
+
+  //init-swiper
+  $('body').on('shown.bs.modal', '#modal-form', function () {
+    var mySwiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      keyboard: {
+        enabled: true,
+      },
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  });
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
   $('.dt-buttons').appendTo($('.table-button-group .left'));
   $('.table-pagination').appendTo($('.dataTables_wrapper'));
   $('.dataTables_info').appendTo($('.table-pagination .left'));
