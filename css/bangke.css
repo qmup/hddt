@@ -2,7 +2,7 @@
 .table-search-group .col-md-3:nth-child(6),
 .table-search-group .col-md-3:nth-child(7),
 .table-search-group .col-md-3:nth-child(8),
-.table-search-group .col-md-3:nth-child(9) 
+.table-search-group .col-md-3:nth-child(10) 
 {
     margin-top:25px !important;
 }
@@ -53,4 +53,27 @@ img.invoice-image {
     .thongbaophi .table-search-group .col-md-3 {
         margin-top:22px !important;
     }
+}
+
+.table-custom td:last-child {
+    width: 195px;
+}
+
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
 }

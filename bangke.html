@@ -9,8 +9,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HiEIS | Bảng kê</title>
+    <title>Bảng kê</title>
 
+    <link rel="shortcut icon" href="img/favicon.ico"/>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,7 +23,7 @@
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/hieis-custom.css" rel="stylesheet">
+    <link href="css/shared.css" rel="stylesheet">
     <link href="css/bangke.css" rel="stylesheet" />
 </head>
 
@@ -51,12 +52,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="liabilities.html">
-                            <i class="fa fa-table"></i>
-                            <span class="nav-label">Công nợ</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="khachhang.html">
                             <i class="fa fa-users"></i>
                             <span class="nav-label">Khách hàng</span>
@@ -81,13 +76,13 @@
                             <span class="m-r-sm text-muted welcome-message">HiEIS Admin</span>
                         </li> -->
                         <li class="navbar-top-menu-item">
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                            <img alt="image" class="img-circle avatar" src="img/user.png" />
                         </li>
                         <li>
                             <div class="dropdown profile-element">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                     <span class="clear">
-                                        <span class="block m-t-xs">
+                                        <span class="block m-t-xs m-b-xs">
                                             <strong class="font-bold">Triều Anh</strong>
                                         </span>
                                         <span class="text-muted text-xs block">Kế toán
@@ -128,7 +123,7 @@
 
                             <!-- Page heading -->
                             <div class="ibox-title">
-                                <h5>Danh sách</h5>
+                                <h5>Danh sách bảng kê</h5>
                                 <div class="ibox-tools">
                                     <a class="collapse-link">
                                         <i class="fa fa-chevron-up"></i>
@@ -157,8 +152,8 @@
 
                                     <div class="col-md-3 filter-input">
                                         <div class="filter status">
-                                            <span class="filter-name">Trạng thái</span>
                                             <select id="search-status" class="form-control m-b">
+                                                <option disabled selected>Trạng thái</option>
                                                 <option value="">Tất cả</option>
                                                 <option>Chờ duyệt</option>
                                                 <option>Đã duyệt</option>
@@ -168,8 +163,8 @@
                                     </div>
                                     <div class="col-md-3 filter-input">
                                         <div class="filter service">
-                                            <span class="filter-name">Dịch vụ</span>
                                             <select id="search-service" class="form-control m-b">
+                                                <option disabled selected>Dịch vụ</option>
                                                 <option value="">Tất cả</option>
                                                 <option>Thu phí cho thuê máy chủ ảo</option>
                                                 <option>Thu phí cho dịch vụ hạ tầng</option>
@@ -183,10 +178,11 @@
                                     <div class="col-md-3 filter-input">
                                         <input id="search-moneyTo" type="number" class="form-control" placeholder="Thành tiền đến" />
                                     </div>
+                                    <div class="col-md-3"></div>
                                     <div class="col-md-3 filter-input">
                                         <div class="filter moneyUnit">
-                                            <span class="filter-name">Đơn vị tiền</span>
                                             <select id="search-moneyUnit" class="form-control m-b">
+                                                <option disabled selected>Đơn vị tiền</option>
                                                 <option value="">Tất cả</option>
                                                 <option>VND</option>
                                                 <option>$</option>
@@ -245,18 +241,21 @@
                                                     VND
                                                 </td>
                                                 <td class="text-center">
-                                                    <span class="label label-warning">Chờ duyệt</span>
+                                                    Chờ duyệt
                                                 </td>
 
-                                                <td class="table-action">
-                                                    <button type="button" class="check" data-toggle="tooltip" data-placement="top" title="duyệt">
+                                                <td class="table-action text-center">
+                                                    <button type="button" class="check">
                                                         <i class="icon material-icons">done</i>
                                                     </button>
-                                                    <button type="button" class="cancel" data-toggle="tooltip" data-placement="top" title="không duyệt">
+                                                    <button type="button" class="cancel">
                                                         <i class="icon material-icons">clear</i>
                                                     </button>
+                                                    <button type="button" data-toggle="modal" href="#modal-form-message">
+                                                        <i class="icon material-icons">message</i>
+                                                    </button>
                                                     <button type="button" data-toggle="modal" href="#modal-form">
-                                                        <i class="icon material-icons" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">visibility</i>
+                                                        <i class="icon material-icons">visibility</i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -277,17 +276,20 @@
                                                     VND
                                                 </td>
                                                 <td class="text-center">
-                                                    <span class="label label-warning">Chờ duyệt</span>
+                                                    Chờ duyệt
                                                 </td>
-                                                <td class="table-action">
-                                                    <button type="button" class="check" data-toggle="tooltip" data-placement="top" title="duyệt">
+                                                <td class="table-action text-center">
+                                                    <button type="button" class="check">
                                                         <i class="icon material-icons">done</i>
                                                     </button>
-                                                    <button type="button" class="cancel" data-toggle="tooltip" data-placement="top" title="không duyệt">
+                                                    <button type="button" class="cancel">
                                                         <i class="icon material-icons">clear</i>
                                                     </button>
+                                                    <button type="button" data-toggle="modal" href="#modal-form-message">
+                                                        <i class="icon material-icons">message</i>
+                                                    </button>
                                                     <button type="button" data-toggle="modal" href="#modal-form">
-                                                        <i class="icon material-icons" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">visibility</i>
+                                                        <i class="icon material-icons">visibility</i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -308,17 +310,20 @@
                                                     $
                                                 </td>
                                                 <td class="text-center">
-                                                    <span class="label label-warning">Đã gửi</span>
+                                                    Đã gửi</span>
                                                 </td>
-                                                <td class="table-action">
-                                                    <button type="button" class="check" data-toggle="tooltip" data-placement="top" title="duyệt">
+                                                <td class="table-action text-center">
+                                                    <button type="button" class="check">
                                                         <i class="icon material-icons">done</i>
                                                     </button>
-                                                    <button type="button" class="cancel" data-toggle="tooltip" data-placement="top" title="không duyệt">
+                                                    <button type="button" class="cancel">
                                                         <i class="icon material-icons">clear</i>
                                                     </button>
+                                                    <button type="button" data-toggle="modal" href="#modal-form-message">
+                                                        <i class="icon material-icons">message</i>
+                                                    </button>
                                                     <button type="button" data-toggle="modal" href="#modal-form">
-                                                        <i class="icon material-icons" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">visibility</i>
+                                                        <i class="icon material-icons">visibility</i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -339,17 +344,20 @@
                                                     VND
                                                 </td>
                                                 <td class="text-center">
-                                                    <span class="label label-warning">Đã duyệt</span>
+                                                    Đã duyệt
                                                 </td>
-                                                <td class="table-action">
-                                                    <button type="button" class="check" data-toggle="tooltip" data-placement="top" title="duyệt">
+                                                <td class="table-action text-center">
+                                                    <button type="button" class="check">
                                                         <i class="icon material-icons">done</i>
                                                     </button>
-                                                    <button type="button" class="cancel" data-toggle="tooltip" data-placement="top" title="không duyệt">
+                                                    <button type="button" class="cancel">
                                                         <i class="icon material-icons">clear</i>
                                                     </button>
+                                                    <button type="button" data-toggle="modal" href="#modal-form-message">
+                                                        <i class="icon material-icons">message</i>
+                                                    </button>
                                                     <button type="button" data-toggle="modal" href="#modal-form">
-                                                        <i class="icon material-icons" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">visibility</i>
+                                                        <i class="icon material-icons">visibility</i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -370,17 +378,20 @@
                                                     VND
                                                 </td>
                                                 <td class="text-center">
-                                                    <span class="label label-warning">Chờ duyệt</span>
+                                                    Chờ duyệt
                                                 </td>
-                                                <td class="table-action">
-                                                    <button type="button" class="check" data-toggle="tooltip" data-placement="top" title="duyệt">
+                                                <td class="table-action text-center">
+                                                    <button type="button" class="check">
                                                         <i class="icon material-icons">done</i>
                                                     </button>
-                                                    <button type="button" class="cancel" data-toggle="tooltip" data-placement="top" title="không duyệt">
+                                                    <button type="button" class="cancel">
                                                         <i class="icon material-icons">clear</i>
                                                     </button>
+                                                    <button type="button" data-toggle="modal" href="#modal-form-message">
+                                                        <i class="icon material-icons">message</i>
+                                                    </button>
                                                     <button type="button" data-toggle="modal" href="#modal-form">
-                                                        <i class="icon material-icons" data-toggle="tooltip" data-placement="top" title="xem hóa đơn">visibility</i>
+                                                        <i class="icon material-icons">visibility</i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -456,6 +467,18 @@
             </div>
         </div>
     </div>
+    <div id="modal-form-message" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body row text-center" id="index">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nostrum consectetur incidunt tempora quod veritatis ab esse odit nihil cupiditate quo dignissimos, porro numquam deserunt nesciunt repellat sit expedita sapiente!
+                </div>
+                <div class="text-center m-t-sm">
+                    <button type="button" class="btn btn-primary btn-close-modal" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -465,7 +488,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="js/plugins/f"></script>
     <script src="js/plugins/dataTables/datatables.min.js"></script>
     <script src="js/moment.js"></script>
 

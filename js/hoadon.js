@@ -40,6 +40,37 @@ $(".cancel").click(function () {
   })
 });
 
+//select all check boxes
+$('#checkMulti').click(function () {
+  var c = this.checked;
+  if (c == true) {
+    $('.invoice .main-action').show();
+  }
+  else {
+    $('.invoice .main-action').hide();
+  }
+  $('.checkTBP').each(function (index, value) {
+    value.checked = c;
+  })
+})
+//show button when check
+$('.checkTBP').each(function (index, value) {
+  $(value).click(function () {
+    if (value.checked == true) {
+      $('.invoice .main-action').show();
+    }
+
+    var hide = 0;
+    //true = 1, false = 0
+    $('.checkTBP').each(function (index, value) {
+      hide += value.checked;
+    })
+    if (hide == 0) {
+      $('.invoice .main-action').hide();
+    }
+  })
+})
+
 window.APP_PUBLIC = {};
 
 /* Region: custom helper functions for DataTable */

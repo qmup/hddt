@@ -6,7 +6,7 @@
         width: 200px !important;
     }
     div.table-search-group .col-md-4:last-child {
-        margin-top: 15px !important;
+        margin-top: 25px !important;
     }
 }
 
@@ -26,18 +26,24 @@ div.table-search-group select option, select option[disabled]{
 
 div.table-search-group div.date::before {
     position: absolute;
-    top: -6px;
+    top: -20px;
     left: 17px;
     z-index: 10;
-    content: 'Ngày'
+    content: 'Ngày';
+    color: rgb(240, 90, 58);
 }
 
 div.table-search-group div.amount::before {
     position: absolute;
-    top: -6px;
+    top: -20px;
     left: 17px;
     z-index: 10;
-    content: 'Thành tiền'
+    content: 'Thành tiền';
+    color: rgb(240, 90, 58);
+}
+
+div.invoice button.main-action {
+    display: none;
 }
 
 div.table-responsive i.icon {
